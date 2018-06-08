@@ -31,6 +31,6 @@ module.exports = {
 
   devtool: 'cheap-source-map',
 
-  devServer: { contentBase: './dist', hot: true },
+  devServer: { contentBase: './dist', hot: true, historyApiFallback: true },
 
 };

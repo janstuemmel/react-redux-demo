@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
+import { BrowserRouter as Router } from 'react-router-dom'
+
 import { Provider } from 'react-redux'
 
-import { AppContainer } from './containers'
+import Root from './components/root'
 
 import configureStore from './store'
 
@@ -11,7 +13,9 @@ const store = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <Router>
+      <Root />
+    </Router>    
   </Provider>,
   document.getElementById('root')
 )

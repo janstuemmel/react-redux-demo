@@ -1,0 +1,8 @@
+### gets a contact card
+
+GET http://faker.hook.io?property=helpers.createCard
+
+### gets a name
+
+GET http://faker.hook.io?property=name.findName
+

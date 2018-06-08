@@ -1,3 +1,9 @@
+jest.mock('../../src/util/localStorage', () => ({
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn()
+}))
+
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
