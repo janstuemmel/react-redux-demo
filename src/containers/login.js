@@ -10,9 +10,9 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => ({ 
-  err: state.err, 
-  loading: state.loading, 
-  token: state.token 
+  err: state.auth.err, 
+  loading: state.auth.loading, 
+  token: state.auth.token 
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

@@ -6,9 +6,9 @@ import App from '../components/app'
 import { logout } from '../actions'
 
 const mapStateToProps = state => ({ 
-  err: state.err, 
-  loading: state.loading, 
-  token: state.token 
+  err: state.auth.err, 
+  loading: state.auth.loading, 
+  token: state.auth.token 
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -1,3 +1,6 @@
+import { combineReducers } from 'redux'
+import { loadingBarReducer } from 'react-redux-loading-bar'
+
 import clientLocalStorage from './util/localStorage'
 
 import {
@@ -7,31 +10,34 @@ import {
   USER_AUTH_LOGOUT
 } from './actions';
 
-const initialState = {
+const initialAuthState = {
   token: clientLocalStorage.getItem('token') || null,
-  error: null,
+  err: null,
   loading: false
 }
 
-function rootReducer(state = initialState, action) {
+function auth(state = initialAuthState, action) {
 
   switch(action.type) {
 
     case USER_AUTH_REQUEST:
-      return { ...state, loading: true }
+      return { ...state, loading: true, err: null }
 
     case USER_AUTH_SUCCESS:
-      return { ...state, token: action.token, loading: false }
+      return { ...state, token: action.token, loading: false, err: null }
 
     case USER_AUTH_FAILED:
       return { ...state, err: action.err, loading: false }
 
     case USER_AUTH_LOGOUT:
-      return { ...state, token: null }
+      return { ...state, token: null, err: null }
 
     default:
       return state
   }
 }
 
-export default rootReducer
+export default combineReducers({
+  auth,
+  loadingBar: loadingBarReducer  
+})
